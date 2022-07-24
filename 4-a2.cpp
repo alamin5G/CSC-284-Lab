@@ -1,5 +1,5 @@
 /**
- * @file 4-a2.cpp
+ * @file 2-a2.cpp
  * * Anupam was a student of BSN program. He continued his study in BSN for 5 semesters. After 5 semesters he thought to change his department from nursing to CSE.
  * In CSE department he enrolled himself under BCSE Program. While studying BCSE program, he found that he has got weaver for 15 courses.
  * That means he completed 45 credit hour in his previous program. Which he need not to do again in BCSE. In BCSE Anupam has completed 18 credit hour.
@@ -44,20 +44,23 @@ public:
     {
         return id;
     }
+   
+    friend void add(Credits bsn, Credits cse);
 
-    friend void display(Credits ch, int q);
-    
-};
-
-void display(Credits ch, int q)
+    void display(Credits cr)
     {
-        Credits cr;
-        if(q!=-1){
-            cout << cr.name << " has completed a total of " << ch.creditHour << " Credit Hours. Whom ID NO. is-:" << cr.id << endl;
-        }else{
-            cout << cr.name << " has completed a total of " << cr.creditHour << " Credit Hours. Whom ID NO. is-:" << cr.id << endl;
-        }
+        cout << name << " has completed a total of " << cr.creditHour << " Credit Hours. Whom ID NO. is-:" << id << endl;
     }
+    void display()
+    {
+        cout << name << " has completed a total of " << creditHour << " Credit Hours. Whom ID NO. is-:" << id << endl;
+    }
+
+};
+ void add(Credits bsn, Credits cse){
+        cse.creditHour += bsn.creditHour;
+    }
+
 int main()
 {
     cout << "Enter the N size: ";
@@ -105,7 +108,14 @@ int main()
         for (int i = 0; i < n; i++)
         {
             cout << "Student " << i + 1 << " Of CSE:" << endl;
-            display(cr, q);
+            if (i == q)
+            {
+                CSE[i].display(cr);
+            }
+            else
+            {
+                CSE[i].display();
+            }
         }
     }
     else
@@ -113,7 +123,6 @@ int main()
         cout << "ID Not Found!" << endl;
     }
 
-    //incomplete
-
     return 0;
+    //incomplete 
 }
