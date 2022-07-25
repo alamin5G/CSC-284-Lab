@@ -23,11 +23,12 @@
 using namespace std;
 class Credits
 {
-
+    
 public:
+    int id;
     string name;
     int creditHour;
-    int id;
+    
 
     void setData()
     {
@@ -45,20 +46,18 @@ public:
         return id;
     }
    
-    friend void add(Credits bsn, Credits cse);
-
-    void display(Credits cr)
-    {
-        cout << name << " has completed a total of " << cr.creditHour << " Credit Hours. Whom ID NO. is-:" << id << endl;
-    }
-    void display()
-    {
-        cout << name << " has completed a total of " << creditHour << " Credit Hours. Whom ID NO. is-:" << id << endl;
-    }
+    friend void add(Credits cse);
+    void display(Credits cr);
 
 };
- void add(Credits bsn, Credits cse){
-        cse.creditHour += bsn.creditHour;
+
+void add(Credits cse)
+    {
+        cout << cse.name << " has completed a total of " << cse.creditHour << " Credit Hours. Whom ID NO. is-:" << cse.id << endl;
+    }
+
+    void Credits::display(Credits cr){
+        add(cr);
     }
 
 int main()
@@ -101,22 +100,15 @@ int main()
 
     Credits cr;
     cr.creditHour = CSE[q].creditHour + BSN[p].creditHour;
+    cr.name = CSE[q].name;
+    cr.id = CSE[q].id;
 
     if (p != -1 && q != -1)
     {
         cout << "Show the Information for CSE Department: " << endl;
-        for (int i = 0; i < n; i++)
-        {
-            cout << "Student " << i + 1 << " Of CSE:" << endl;
-            if (i == q)
-            {
-                CSE[i].display(cr);
-            }
-            else
-            {
-                CSE[i].display();
-            }
-        }
+        
+            CSE[q].display(cr);
+        
     }
     else
     {
