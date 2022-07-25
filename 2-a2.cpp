@@ -47,12 +47,10 @@ public:
 
     void display(Credits cr)
     {
-
         cout << name << " has completed a total of " << cr.creditHour << " Credit Hours. Whom ID NO. is-:" << id << endl;
     }
     void display()
     {
-
         cout << name << " has completed a total of " << creditHour << " Credit Hours. Whom ID NO. is-:" << id << endl;
     }
 };
