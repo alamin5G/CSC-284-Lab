@@ -4,8 +4,6 @@
 class is created. A destructor function cleans up any resources allocated to an 
 object. In a class, there are three constructors. To clean up the allocated resources, 
 create a destructor function. 
-Write a C++ program on the above concept where the Name of the Class will be 
-your name. The member variable should show your age and height
  * @author Md. Alamin (alamin5g@yahoo.com)
  * I would love be a software engineer at Google. That is why anybody can uses this code without any condition, if you face any difficulty, then try to email me.
  * @version 0.1
@@ -42,6 +40,6 @@ int main(){
     cin >> age >> height;
     Alamin info(age, height);
     Alamin show(info);
-
-
+    
+    return 0; 
 }
